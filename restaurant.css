@@ -151,3 +151,86 @@ button:hover {
         justify-content: center;
     }
 }
+/* LOGIN WIREFRAME LAYOUT */
+.login-wireframe {
+    display: flex;
+    /* use flex-start instead of space-between so elements sit next to each other
+       and not pushed to the edges */
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 80px;
+    /* add a small gap between the boxes for spacing */
+    gap: 20px;
+}
+
+/* Linker PFP box */
+.pfp-box {
+    width: 300px;
+    height: 300px;
+    background-color: #F5F5F2;
+    color: #1C1C1C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Grote login box rechts */
+.login-large-box {
+    width: 500px;
+    height: 500px;
+    background-color: #F5F5F2;
+    color: #1C1C1C;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 300px;
+}
+
+/* Form content bovenin */
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-content input {
+    padding: 12px;
+    border: none;
+    font-family: 'Quintessential', cursive;
+}
+
+/* Login knop onder het vak */
+.login-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.login-button-wrapper button {
+    background-color: #BC002D;
+    color: #F5F5F2;
+    padding: 12px 40px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Quintessential', cursive;
+    transition: 0.3s;
+}
+
+.login-button-wrapper button:hover {
+    opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .login-wireframe {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .login-large-box {
+        width: 100%;
+        height: auto;
+    }
+}
