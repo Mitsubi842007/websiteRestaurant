@@ -391,6 +391,22 @@ nav a:hover {
     display: block;
 }
 
+#item3:checked ~ .cart .item3 {
+    display: block;
+}
+
+#item4:checked ~ .cart .item4 {
+    display: block;
+}
+
+#item5:checked ~ .cart .item5 {
+    display: block;
+}
+
+#item6:checked ~ .cart .item6 {
+    display: block;
+}
+
 .checkout {
     background-color: #BC002D;
     padding: 20px;
