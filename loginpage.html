@@ -26,33 +26,30 @@
     </header>
 
     <!-- LOGIN AREA -->
-    <section class="login-wireframe">
-
-        <!-- Linker pfp box -->
-        <div class="pfp-box">
-            pfp
+    <section class="login-page">
+        <!-- banner area: currently holds a small placeholder photo for PFP -->
+        <div class="login-banner">
+            <img src="path/to/pfp-placeholder.png" alt="PFP placeholder">
         </div>
-
-        <!-- Rechter login vak -->
-        <div class="login-large-box">
+        <div class="login-card">
+            <div class="login-header">
+                <h2>Welkom terug</h2>
+                <p>Log in om verder te gaan.</p>
+            </div>
             <form action="#" method="post">
+                <label for="email">E-mailadres</label>
+                <input id="email" name="email" type="email" placeholder="jouw@voorbeeld.nl" required>
 
-                <div class="form-content">
-                    <p>Email</p>
-                    <input type="email" required>
+                <label for="password">Wachtwoord</label>
+                <input id="password" name="password" type="password" placeholder="••••••••" required>
 
-                    <p>Wachtwoord</p>
-                    <input type="password" required>
+                <button type="submit">Inloggen</button>
+
+                <div class="login-footer">
+                    <a href="#">Wachtwoord vergeten?</a>
                 </div>
-
-                <!-- Login knop los onder vak -->
-                <div class="login-button-wrapper">
-                    <button type="submit">log in</button>
-                </div>
-
             </form>
         </div>
-
     </section>
 
 </div>

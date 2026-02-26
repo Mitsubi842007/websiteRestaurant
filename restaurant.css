@@ -188,89 +188,7 @@ button:hover {
         justify-content: center;
     }
 }
-/* LOGIN WIREFRAME LAYOUT */
-.login-wireframe {
-    display: flex;
-    /* use flex-start instead of space-between so elements sit next to each other
-       and not pushed to the edges */
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-top: 80px;
-    /* add a small gap between the boxes for spacing */
-    gap: 20px;
-}
 
-/* Linker PFP box */
-.pfp-box {
-    width: 300px;
-    height: 300px;
-    background-color: #F5F5F2;
-    color: #1C1C1C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Grote login box rechts */
-.login-large-box {
-    width: 500px;
-    height: 500px;
-    background-color: #F5F5F2;
-    color: #1C1C1C;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 300px;
-}
-
-/* Form content bovenin */
-.form-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-content input {
-    padding: 12px;
-    border: none;
-    font-family: 'Quintessential', cursive;
-}
-
-/* Login knop onder het vak */
-.login-button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.login-button-wrapper button {
-    background-color: #BC002D;
-    color: #F5F5F2;
-    padding: 12px 40px;
-    border: none;
-    cursor: pointer;
-    font-family: 'Quintessential', cursive;
-    transition: 0.3s;
-}
-
-.login-button-wrapper button:hover {
-    opacity: 0.85;
-}
-
-/* Responsive */
-@media (max-width: 1000px) {
-    .login-wireframe {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-    }
-
-    .login-large-box {
-        width: 100%;
-        height: auto;
-    }
-}
 /* MAIN CONTAINER */
 .container {
     width: 75%;
@@ -469,4 +387,101 @@ footer {
 /* make sure page content doesn’t hide behind footer */
 body {
     padding-bottom: 60px; /* adjust as needed for footer height */
+}
+
+/* ===== PROFESSIONAL LOGIN PAGE ===== */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* push card toward bottom */
+    align-items: center;
+    min-height: calc(100vh - 200px); /* account for header+footer */
+    background: linear-gradient(135deg, #1C1C1C 0%, #3a3a3a 100%);
+}
+.login-card {
+    background-color: #F5F5F2;
+    color: #1C1C1C;
+    padding: 40px 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* header stays top, form pushed bottom */
+}
+.login-card h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.login-card p {
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.login-card form label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+}
+
+.login-card form input {
+    width: 100%;
+    margin-top: 5px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Quintessential', cursive;
+}
+
+.login-card button {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.login-footer {
+    text-align: right;
+    margin-top: 12px;
+}
+
+.login-footer a {
+    color: #BC002D;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .login-card {
+        padding: 30px 25px;
+    }
+}
+
+/* banner above login card, width adjustable via CSS or inline style */
+.login-banner {
+    width: 100%;
+    /* height can be small since it holds an image */
+    height: auto;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-banner img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #F5F5F2;
+}
+/* optional: banner responsive */
+@media (max-width: 600px) {
+    .login-banner {
+        height: 120px;
+    }
 }
