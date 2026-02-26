@@ -88,7 +88,44 @@ header {
     justify-content: space-between;
     gap: 40px;
 }
+/* ===== INFO PAGE ===== */
 
+.info-title {
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+.title-bar {
+    display: inline-block;
+    background-color: #BC002D;
+    color: #F5F5F2;
+    padding: 15px 30px;
+    font-size: 28px;
+    border-radius: 4px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.info-box {
+    padding: 20px;
+    text-align: center;
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 180px;
+    background-color: #BC002D;
+    color: #F5F5F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
 .col {
     width: 48%;
 }
