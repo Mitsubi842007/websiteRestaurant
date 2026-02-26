@@ -238,6 +238,8 @@ button:hover {
 .container {
     width: 75%;
     padding: 20px;
+    /* override the earlier centered margin and nudge the whole layout a bit to the left */
+    margin: 40px 0 0 20px;
 }
 
 /* NAVBAR */
@@ -422,5 +424,12 @@ footer {
     width: 100%;
     background-color: #BC002D;
     text-align: center;
-    padding: 15px;
+    padding: 10px 0; /* reduced vertical padding */
+    font-size: 0.9rem; /* slightly smaller text */
+    z-index: 100; /* stay on top */
+}
+
+/* make sure page content doesn’t hide behind footer */
+body {
+    padding-bottom: 60px; /* adjust as needed for footer height */
 }
