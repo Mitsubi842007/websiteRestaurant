@@ -66,11 +66,14 @@ header {
 .hero-placeholder {
     width: 100%;
     height: 250px;
-    background-color: #BC002D;
+    /* replace placeholder color with sakura background image */
+    background: url("afbeeldingen/sakura background.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 28px;
+    color: #F5F5F2; /* ensure text is readable on image */
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 /* ===== WITTE CONTENT BOXEN (herbruikbaar) ===== */
@@ -113,6 +116,17 @@ header {
 .info-box {
     padding: 20px;
     text-align: center;
+}
+
+/* grote tekstvak onder medewerkers */
+.info-text-box {
+    margin-top: 40px;
+}
+
+.info-text-box .white-box {
+    padding: 40px;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .photo-placeholder {
@@ -301,6 +315,12 @@ nav a:hover {
     margin-top: 10px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.price {
+    color: #1C1C1C; /* zwarte tekst voor prijs */
+    margin-left: 10px;
+    font-weight: 600;
 }
 
 /* CART */
