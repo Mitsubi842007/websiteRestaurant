@@ -12,12 +12,14 @@
 <body>
 
 <div class="container">
+    <!-- Page container: centers content and limits width. Change `.container` in `restaurant.css` to adjust layout -->
 
     <header>
     <div class="logo">
         <img src="afbeeldingen/sakura leaf logo.png" alt="Sakura leaf logo">
         <span class="site-title">Mitsu no Sakura</span>
     </div>
+    <!-- Navigation menu: edit links here. Visual style is controlled by `.menu` in `restaurant.css` -->
     <nav class="menu">
         <a href="homepage.html">Home</a>
         <a href="contact.html">Contact</a>
@@ -28,10 +30,12 @@
 </header>
 
 <section class="hero">
+    <!-- Hero area: background image and size are set in `.hero-placeholder` in CSS. Replace the image in `afbeeldingen/` and update CSS if needed. -->
     <div class="hero-placeholder">Background Picture</div>
 </section>
 
 <section class="categories">
+    <!-- Categories: these buttons can be used for filtering products with JS. Styling in `.categories`. -->
     <span>Categorie</span>
     <button>Japanse Gerechten</button>
     <button>Dranken</button>
@@ -41,10 +45,11 @@
 
     <!-- JAPANESE PRODUCT 1 -->
     <div class="product">
-        <div class="product-img">Foto</div>
+        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
         <div class="product-info">
             <h3>Sushi Platter</h3>
             <p>Assortiment verse sushi</p>
+            <!-- Hidden checkbox + label: simple pattern to make a clickable area without JS. You can replace this with a <button> or add JS to handle clicks. -->
             <input type="checkbox" id="item1" hidden>
             <label for="item1" class="add-btn">Toevoegen</label>
             <span class="price">€15,00</span>
@@ -53,7 +58,7 @@
 
     <!-- JAPANESE PRODUCT 2 -->
     <div class="product">
-        <div class="product-img">Foto</div>
+        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
         <div class="product-info">
             <h3>Ramen Bowl</h3>
             <p>Varkensbouillon, noedels, ei</p>
@@ -65,7 +70,7 @@
 
     <!-- JAPANESE PRODUCT 3 -->
     <div class="product">
-        <div class="product-img">Foto</div>
+        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
         <div class="product-info">
             <h3>Tempura Mix</h3>
             <p>Gefrituurde garnalen en groenten</p>
@@ -77,7 +82,7 @@
 
     <!-- JAPANESE PRODUCT 4 -->
     <div class="product">
-        <div class="product-img">Foto</div>
+        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
         <div class="product-info">
             <h3>Teriyaki Chicken</h3>
             <p>Kip in sojasaus met rijst</p>
@@ -89,7 +94,7 @@
 
     <!-- JAPANESE PRODUCT 5 -->
     <div class="product">
-        <div class="product-img">Foto</div>
+        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
         <div class="product-info">
             <h3>Udon Noodles</h3>
             <p>Dikke noedels in dashi-bouillon</p>
@@ -101,7 +106,7 @@
 
     <!-- JAPANESE PRODUCT 6 -->
     <div class="product">
-        <div class="product-img">Foto</div>
+        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
         <div class="product-info">
             <h3>Sashimi Selection</h3>
             <p>Vers gesneden rauwe vis</p>
@@ -120,6 +125,7 @@
     <h2>Winkelwagen</h2>
 
     <div class="cart-items">
+        <!-- Cart items are placeholder text. Use JavaScript to dynamically add/remove items here. -->
         <p class="cart-item item1">Sushi Platter</p>
         <p class="cart-item item2">Ramen Bowl</p>
         <p class="cart-item item3">Tempura Mix</p>
@@ -134,6 +140,7 @@
 </aside>
 
 <footer>
+    <!-- Footer: change credit text or add links here -->
     gemaakt door  Anthony Gerrits
 </footer>
 

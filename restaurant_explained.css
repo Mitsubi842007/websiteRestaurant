@@ -1,0 +1,435 @@
+/*
+  Annotated CSS: easy explanations added as comments.
+  This file is a copy of `restaurant.css` with simple comments explaining what each section and important property does.
+  Use this as a reference while editing the real `restaurant.css`.
+*/
+
+/* RESET ---------------------------------------------
+   Remove browser default spacing and make sizing predictable.
+   - margin/padding: 0 removes default gaps browsers add
+   - box-sizing: border-box makes width/height include padding and border
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BASIS ---------------------------------------------
+   General site look:
+   - background-color: page background color
+   - font-family: which font is used
+   - color: default text color
+*/
+body {
+    background-color: #1C1C1C; /* page background (dark) */
+    font-family: 'Quintessential', cursive; /* main font from Google Fonts */
+    color: #F5F5F2; /* default text color (light) */
+}
+
+/* Main page wrapper: controls overall width and centering */
+.container {
+    width: 90%;            /* how much of the screen width the content uses */
+    max-width: 1200px;     /* never bigger than this */
+    margin: 40px auto;     /* centers container and adds top/bottom space */
+}
+
+/* ===== HEADER (same on every page) =====
+   Header contains the logo and the navigation menu. Flexbox places logo left and menu right.
+*/
+header {
+    display: flex;               /* lay out children in a row */
+    justify-content: space-between; /* push logo and menu to edges */
+    align-items: center;         /* vertically center items */
+    margin-bottom: 40px;         /* space below header */
+}
+
+/* Logo area: keeps the image and title aligned */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;               /* space between logo image and text */
+    height: 160px;           /* container height; image scales to fit */
+    min-height: 100px;
+    max-height: 200px;
+}
+
+/* Make logo images fill the logo area nicely */
+.logo img {
+    height: 100%;            /* scale image to height of .logo */
+    width: auto;
+    max-height: 200px;
+    min-height: 100px;
+    display: block;
+    object-fit: contain;     /* keep image aspect ratio */
+}
+
+/* Navigation menu box: background and spacing */
+.menu {
+    background-color: #F5F5F2; /* light background for the nav */
+    padding: 15px 25px;        /* inner spacing */
+    display: flex;             /* arrange links in a row */
+    gap: 15px;                 /* space between links */
+}
+
+/* Each link look: red pill with white text */
+.menu a {
+    background-color: #BC002D; /* red button color */
+    color: #F5F5F2;            /* white text */
+    padding: 10px 20px;        /* click area */
+    text-decoration: none;     /* remove underline */
+    transition: 0.3s;          /* smooth hover changes */
+}
+
+.menu a:hover {
+    opacity: 0.8;              /* slightly fade on hover */
+}
+
+/* ===== HERO (banner across pages) =====
+   Large banner area. The image and how it covers the area are set here.
+*/
+.hero {
+    margin-bottom: 50px; /* space below hero area */
+}
+
+/* Hero placeholder shows a background image (cover) and centers text */
+.hero-placeholder {
+    width: 100%;
+    height: 250px; /* height of the banner */
+    /* the background property sets the image, centers it and scales to cover */
+    background: url("afbeeldingen/sakura background.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #F5F5F2; /* text color on top of image */
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); /* makes text readable on bright images */
+}
+
+/* ===== WHITE CONTENT BOXES (reusable) =====
+   A reusable style: white background with dark text for content blocks.
+*/
+.white-box {
+    background-color: #F5F5F2; /* white card */
+    color: #1C1C1C;            /* dark text */
+    padding: 30px;             /* inner spacing */
+}
+
+/* ===== TWO COLUMN LAYOUT =====
+   Simple two-column layout using flexbox. Use `.col` elements inside.
+*/
+.two-column {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* space between columns */
+}
+
+/* ===== CONTACT PAGE LAYOUT =====
+   Contact page uses two flexible columns for info and form.
+*/
+.contact-layout {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.contact-info,
+.contact-form {
+    flex: 1; /* each column takes equal available space */
+}
+
+.contact-info h2,
+.contact-form h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* Map box: colored area to show map or address */
+.map-box {
+    width: 100%;
+    height: 200px;
+    background-color: #BC002D; /* red background as placeholder */
+    color: #F5F5F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.info-text {
+    background-color: #F5F5F2; /* white card for text */
+    color: #1C1C1C;
+    padding: 20px;
+    line-height: 1.8; /* spacing between lines for readability */
+}
+
+.info-text p {
+    margin-bottom: 8px; /* space after each paragraph */
+}
+
+.form-box {
+    background-color: #F5F5F2; /* form sits on white box */
+    padding: 30px;
+}
+
+/* ===== INFO PAGE ===== */
+.info-title {
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+.title-bar {
+    display: inline-block;
+    background-color: #BC002D; /* red label */
+    color: #F5F5F2;
+    padding: 15px 30px;
+    font-size: 28px;
+    border-radius: 4px;
+}
+
+/* Responsive grid for staff or info cards */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.info-box {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Large text box below staff area */
+.info-text-box {
+    margin-top: 40px;
+}
+
+.info-text-box .white-box {
+    padding: 40px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Photo placeholder style: replace with <img> for real photos */
+.photo-placeholder {
+    width: 100%;
+    height: 180px;
+    background-color: #BC002D; /* colored placeholder */
+    color: #F5F5F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.col {
+    width: 48%; /* used in two-column layout: roughly half each */
+}
+
+/* ===== FORMS (contact and login) =====
+   Form layout is column-based; inputs styled to match the theme.
+*/
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* space between inputs */
+}
+
+input,
+textarea {
+    padding: 12px;
+    background-color: #F5F5F2; /* inputs are light to stand out on dark page */
+    border: none;              /* no default browser border */
+    color: #1C1C1C;            /* dark text inside inputs */
+    font-family: 'Quintessential', cursive;
+}
+
+textarea {
+    height: 120px;
+    resize: none; /* prevents user from resizing the textarea */
+}
+
+button {
+    background-color: #BC002D; /* red button */
+    color: #F5F5F2;
+    padding: 12px;
+    border: none;
+    cursor: pointer;           /* shows pointer on hover */
+    font-family: 'Quintessential', cursive;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.8; /* subtle hover effect */
+}
+
+/* ===== RESPONSIVE (works for all pages) =====
+   Rules here make layout stack on narrower screens (phones/tablets).
+*/
+@media (max-width: 900px) {
+
+    .two-column {
+        flex-direction: column; /* stack columns vertically */
+    }
+
+    .col {
+        width: 100%;
+    }
+
+    header {
+        flex-direction: column; /* header items stack on small screens */
+        gap: 20px;
+    }
+
+    .menu {
+        flex-wrap: wrap; /* allow menu to flow to multiple lines */
+        justify-content: center;
+    }
+}
+
+/* MAIN CONTAINER (later override): this section in the original file changes layout sizing.
+   Note: there are two `.container` definitions in the original CSS; the later one overrides the first.
+*/
+.container {
+    width: 75%;
+    padding: 20px;
+    /* this margins moves the whole layout a bit to the left */
+    margin: 40px 0 0 20px;
+}
+
+/* NAVBAR tweaks (repeated/overrides) */
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 120px; /* fallback height */
+}
+
+.site-title {
+    color: #F5F5F2;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Quintessential', cursive;
+    white-space: nowrap; /* prevents title from breaking into multiple lines */
+}
+
+@media (max-width: 900px) {
+    .site-title {
+        font-size: 20px; /* smaller title on mobile */
+    }
+}
+
+/* Nav link style (another set of rules) */
+nav a {
+    text-decoration: none;
+    background-color: #BC002D;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px; /* rounded corners */
+}
+
+nav a:hover {
+    background-color: #1C1C1C; /* invert color on hover */
+}
+
+/* HERO duplicate: fallback background color if image missing */
+.hero-placeholder {
+    height: 250px;
+    background-color: #BC002D; /* red fallback */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CATEGORIES bar: small buttons to filter products */
+.categories {
+    background-color: #F5F5F2;
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.categories span {
+    color: #1C1C1C;
+}
+
+.categories button {
+    background-color: #BC002D;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 5px;
+}
+
+/* PRODUCTS grid: 2 columns of product cards */
+.products {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.product {
+    display: flex; /* image and info side-by-side */
+    gap: 20px;
+}
+
+/* Small square for product image; overflow: hidden crops images that don't fit */
+.product-img {
+    width: 120px;
+    height: 120px;
+    background-color: #BC002D; /* fallback color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* crop overflow */
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* image fills box while keeping aspect ratio */
+    display: block;
+}
+
+.product-info {
+    background-color: #F5F5F2; /* white info card */
+    padding: 15px;
+    flex: 1; /* take remaining horizontal space */
+}
+
+.product-info h3,
+.product-info p {
+    color: #1C1C1C;
+    margin: 5px 0;
+}
+
+/* Add-to-cart button style (currently a label used with a hidden checkbox) */
+.add-btn {
+    display: inline-block;
+    background-color: #BC002D;
+    padding: 8px 15px;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.price {
+    color: #1C1C1C; /* price is dark text */
+    margin-left: 10px;
+    font-weight: 600; /* make price a bit bolder */
+}
+
+/* End of annotated file */

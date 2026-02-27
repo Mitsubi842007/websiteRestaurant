@@ -32,6 +32,7 @@
 
     <!-- HERO -->
     <section class="hero">
+        <!-- Hero placeholder: controlled in CSS. Replace background image there to change this banner. -->
         <div class="hero-placeholder">
             Background Picture
         </div>
@@ -41,10 +42,12 @@
     <section class="contact-layout">
 
         <!-- LINKER KOLOM -->
+        <!-- Left column: contact info and map. `.contact-info` and `.map-box` set sizes in CSS -->
         <div class="contact-info">
 
             <h2>Contact</h2>
 
+            <!-- Map box: replace placeholder with an embedded map or image. Background color set in CSS. -->
             <div class="map-box">
                 Kaart / Adres Placeholder
             </div>
@@ -58,11 +61,13 @@
         </div>
 
         <!-- RECHTER KOLOM -->
+        <!-- Right column: contact form. Form fields are required where `required` is set. -->
         <div class="contact-form">
 
             <h2>Stuur Ons Een Bericht</h2>
 
             <div class="form-box">
+                <!-- Simple contact form: `required` makes fields mandatory. Add `action` to send data to server or handle with JS. -->
                 <form>
                     <input type="text" placeholder="Naam" required>
                     <input type="email" placeholder="Email" required>
