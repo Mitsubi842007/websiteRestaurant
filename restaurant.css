@@ -1,4 +1,4 @@
-/* RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -128,6 +128,7 @@ header {
     justify-content: center;
     margin-bottom: 20px;
     font-size: 18px;
+    background: url(afbeeldingen/sakura\ background.jpg);
 }
 
 .info-text {

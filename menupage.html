@@ -1,148 +1,165 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="restaurant.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="restaurant.css">
 </head>
 
 <body>
 
-<div class="container">
-    <!-- Page container: centers content and limits width. Change `.container` in `restaurant.css` to adjust layout -->
+    <div class="container">
+        <!-- Page container: centers content and limits width. Change `.container` in `restaurant.css` to adjust layout -->
 
-    <header>
-    <div class="logo">
-        <img src="afbeeldingen/sakura leaf logo.png" alt="Sakura leaf logo">
-        <span class="site-title">Mitsu no Sakura</span>
+        <header>
+            <div class="logo">
+                <img src="afbeeldingen/sakura leaf logo.png" alt="Sakura leaf logo">
+                <span class="site-title">Mitsu no Sakura</span>
+            </div>
+            <!-- Navigation menu: edit links here. Visual style is controlled by `.menu` in `restaurant.css` -->
+            <nav class="menu">
+                <a href="homepage.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="informatie.html">Informatie</a>
+                <a href="menupage.html">Menu</a>
+                <a href="loginpage.html">Log in</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <!-- Hero area: background image and size are set in `.hero-placeholder` in CSS. Replace the image in `afbeeldingen/` and update CSS if needed. -->
+            <div class="hero-placeholder">Background Picture</div>
+        </section>
+
+        <section class="categories">
+            <!-- Categories: these buttons can be used for filtering products with JS. Styling in `.categories`. -->
+            <span>Categorie</span>
+            <button>Japanse Gerechten</button>
+            <button>Dranken</button>
+        </section>
+
+        <section class="products">
+
+            <!-- JAPANESE PRODUCT 1 -->
+            <div class="product">
+                <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
+                <div class="product-info">
+                    <h3>Sushi Platter</h3>
+                    <p>Assortiment verse sushi</p>
+                    <!-- Hidden checkbox + label: simple pattern to make a clickable area without JS. You can replace this with a <button> or add JS to handle clicks. -->
+                    <input type="checkbox" id="item1" hidden>
+                    <label for="item1" class="add-btn">Toevoegen</label>
+                    <span class="price">€15,00</span>
+                </div>
+            </div>
+
+            <!-- JAPANESE PRODUCT 2 -->
+            <div class="product">
+                <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
+                <div class="product-info">
+                    <h3>Ramen Bowl</h3>
+                    <p>Top sirloin steak (boneless) ,
+                        Black pepper ,
+                        Beef / oriental-flavored ramen noodles ,
+                        Vegetable oil
+                        ,
+                        Water
+                        ,
+                        Onion
+                        ,
+                        Garlic
+                        ,
+                        Fresh ginger
+                        ,
+                        Miso paste
+                    </p>
+                    <input type="checkbox" id="item2" hidden>
+                    <label for="item2" class="add-btn">Toevoegen</label>
+                    <span class="price">€9,50</span>
+                </div>
+            </div>
+
+            <!-- JAPANESE PRODUCT 3 -->
+            <div class="product">
+                <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
+                <div class="product-info">
+                    <h3>Tempura Mix</h3>
+                    <p>Gefrituurde garnalen en groenten</p>
+                    <input type="checkbox" id="item3" hidden>
+                    <label for="item3" class="add-btn">Toevoegen</label>
+                    <span class="price">€12,00</span>
+                </div>
+            </div>
+
+            <!-- JAPANESE PRODUCT 4 -->
+            <div class="product">
+                <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
+                <div class="product-info">
+                    <h3>Teriyaki Chicken</h3>
+                    <p>Kip in sojasaus met rijst</p>
+                    <input type="checkbox" id="item4" hidden>
+                    <label for="item4" class="add-btn">Toevoegen</label>
+                    <span class="price">€11,00</span>
+                </div>
+            </div>
+
+            <!-- JAPANESE PRODUCT 5 -->
+            <div class="product">
+                <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
+                <div class="product-info">
+                    <h3>Udon Noodles</h3>
+                    <p>Dikke noedels in dashi-bouillon</p>
+                    <input type="checkbox" id="item5" hidden>
+                    <label for="item5" class="add-btn">Toevoegen</label>
+                    <span class="price">€8,50</span>
+                </div>
+            </div>
+
+            <!-- JAPANESE PRODUCT 6 -->
+            <div class="product">
+                <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
+                <div class="product-info">
+                    <h3>Okonomiyaki</h3>
+                    <p>Bloem, dashi (visbouillon), ei, witte kool, lente-ui, gember, buikspek,
+                        Okonomiyakisaus, Japanse mayonaise, aonori (zeewier), katsuobushi (bonito-vlokken)</p>
+                    <input type="checkbox" id="item6" hidden>
+                    <label for="item6" class="add-btn">Toevoegen</label>
+                    <span class="price">€18,00</span>
+                </div>
+            </div>
+
+        </section>
+
     </div>
-    <!-- Navigation menu: edit links here. Visual style is controlled by `.menu` in `restaurant.css` -->
-    <nav class="menu">
-        <a href="homepage.html">Home</a>
-        <a href="contact.html">Contact</a>
-        <a href="informatie.html">Informatie</a>
-        <a href="menupage.html">Menu</a>
-        <a href="loginpage.html">Log in</a>
-    </nav>
-</header>
 
-<section class="hero">
-    <!-- Hero area: background image and size are set in `.hero-placeholder` in CSS. Replace the image in `afbeeldingen/` and update CSS if needed. -->
-    <div class="hero-placeholder">Background Picture</div>
-</section>
+    <!-- SIDE CART -->
+    <aside class="cart">
+        <h2>Winkelwagen</h2>
 
-<section class="categories">
-    <!-- Categories: these buttons can be used for filtering products with JS. Styling in `.categories`. -->
-    <span>Categorie</span>
-    <button>Japanse Gerechten</button>
-    <button>Dranken</button>
-</section>
-
-<section class="products">
-
-    <!-- JAPANESE PRODUCT 1 -->
-    <div class="product">
-        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
-        <div class="product-info">
-            <h3>Sushi Platter</h3>
-            <p>Assortiment verse sushi</p>
-            <!-- Hidden checkbox + label: simple pattern to make a clickable area without JS. You can replace this with a <button> or add JS to handle clicks. -->
-            <input type="checkbox" id="item1" hidden>
-            <label for="item1" class="add-btn">Toevoegen</label>
-            <span class="price">€15,00</span>
+        <div class="cart-items">
+            <!-- Cart items are placeholder text. Use JavaScript to dynamically add/remove items here. -->
+            <p class="cart-item item1">Sushi Platter</p>
+            <p class="cart-item item2">Ramen Bowl</p>
+            <p class="cart-item item3">Tempura Mix</p>
+            <p class="cart-item item4">Teriyaki Chicken</p>
+            <p class="cart-item item5">Udon Noodles</p>
+            <p class="cart-item item6">Sashimi Selection</p>
         </div>
-    </div>
 
-    <!-- JAPANESE PRODUCT 2 -->
-    <div class="product">
-        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
-        <div class="product-info">
-            <h3>Ramen Bowl</h3>
-            <p>Varkensbouillon, noedels, ei</p>
-            <input type="checkbox" id="item2" hidden>
-            <label for="item2" class="add-btn">Toevoegen</label>
-            <span class="price">€9,50</span>
+        <div class="checkout">
+            Afrekenen
         </div>
-    </div>
+    </aside>
 
-    <!-- JAPANESE PRODUCT 3 -->
-    <div class="product">
-        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
-        <div class="product-info">
-            <h3>Tempura Mix</h3>
-            <p>Gefrituurde garnalen en groenten</p>
-            <input type="checkbox" id="item3" hidden>
-            <label for="item3" class="add-btn">Toevoegen</label>
-            <span class="price">€12,00</span>
-        </div>
-    </div>
-
-    <!-- JAPANESE PRODUCT 4 -->
-    <div class="product">
-        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
-        <div class="product-info">
-            <h3>Teriyaki Chicken</h3>
-            <p>Kip in sojasaus met rijst</p>
-            <input type="checkbox" id="item4" hidden>
-            <label for="item4" class="add-btn">Toevoegen</label>
-            <span class="price">€11,00</span>
-        </div>
-    </div>
-
-    <!-- JAPANESE PRODUCT 5 -->
-    <div class="product">
-        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
-        <div class="product-info">
-            <h3>Udon Noodles</h3>
-            <p>Dikke noedels in dashi-bouillon</p>
-            <input type="checkbox" id="item5" hidden>
-            <label for="item5" class="add-btn">Toevoegen</label>
-            <span class="price">€8,50</span>
-        </div>
-    </div>
-
-    <!-- JAPANESE PRODUCT 6 -->
-    <div class="product">
-        <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
-        <div class="product-info">
-            <h3>Sashimi Selection</h3>
-            <p>Vers gesneden rauwe vis</p>
-            <input type="checkbox" id="item6" hidden>
-            <label for="item6" class="add-btn">Toevoegen</label>
-            <span class="price">€18,00</span>
-        </div>
-    </div>
-
-</section>
-
-</div>
-
-<!-- SIDE CART -->
-<aside class="cart">
-    <h2>Winkelwagen</h2>
-
-    <div class="cart-items">
-        <!-- Cart items are placeholder text. Use JavaScript to dynamically add/remove items here. -->
-        <p class="cart-item item1">Sushi Platter</p>
-        <p class="cart-item item2">Ramen Bowl</p>
-        <p class="cart-item item3">Tempura Mix</p>
-        <p class="cart-item item4">Teriyaki Chicken</p>
-        <p class="cart-item item5">Udon Noodles</p>
-        <p class="cart-item item6">Sashimi Selection</p>
-    </div>
-
-    <div class="checkout">
-        Afrekenen
-    </div>
-</aside>
-
-<footer>
-    <!-- Footer: change credit text or add links here -->
-    gemaakt door  Anthony Gerrits
-</footer>
+    <footer>
+        <!-- Footer: change credit text or add links here -->
+        gemaakt door Anthony Gerrits
+    </footer>
 
 </body>
+
 </html>
