@@ -11,6 +11,24 @@
 </head>
 
 <body>
+    <!-- SHOPPING CART PANEL -->
+    <div class="cart-panel">
+        <div class="cart-header">
+            <h2>🛒 Winkelwagen</h2>
+            <button class="cart-close-btn" id="closeCart">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart-msg">Je winkelwagen is leeg</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Totaal:</strong>
+                <span id="cartTotal">€0,00</span>
+            </div>
+            <button class="checkout-btn">Bestellen</button>
+            <button class="clear-cart-btn" id="clearCart">Winkelwagen leegmaken</button>
+        </div>
+    </div>
 
     <div class="container">
         <!-- Page container: centers content and limits width. Change `.container` in `restaurant.css` to adjust layout -->
@@ -27,6 +45,7 @@
                 <a href="informatie.html">Informatie</a>
                 <a href="menupage.html">Menu</a>
                 <a href="loginpage.html">Log in</a>
+                <button class="cart-toggle-btn" id="openCart">🛒 (<span id="cartCount">0</span>)</button>
             </nav>
         </header>
 
@@ -45,20 +64,18 @@
         <section class="products">
 
             <!-- JAPANESE PRODUCT 1 -->
-            <div class="product">
+            <div class="product" data-id="1" data-name="Sushi Platter" data-price="15.00">
                 <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
                 <div class="product-info">
                     <h3>Sushi Platter</h3>
                     <p>Assortiment verse sushi</p>
-                    <!-- Hidden checkbox + label: simple pattern to make a clickable area without JS. You can replace this with a <button> or add JS to handle clicks. -->
-                    <input type="checkbox" id="item1" hidden>
-                    <label for="item1" class="add-btn">Toevoegen</label>
+                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
                     <span class="price">€15,00</span>
                 </div>
             </div>
 
             <!-- JAPANESE PRODUCT 2 -->
-            <div class="product">
+            <div class="product" data-id="2" data-name="Ramen Bowl" data-price="9.50">
                 <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
                 <div class="product-info">
                     <h3>Ramen Bowl</h3>
@@ -77,57 +94,52 @@
                         ,
                         Miso paste
                     </p>
-                    <input type="checkbox" id="item2" hidden>
-                    <label for="item2" class="add-btn">Toevoegen</label>
+                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
                     <span class="price">€9,50</span>
                 </div>
             </div>
 
             <!-- JAPANESE PRODUCT 3 -->
-            <div class="product">
+            <div class="product" data-id="3" data-name="Tempura Mix" data-price="12.00">
                 <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
                 <div class="product-info">
                     <h3>Tempura Mix</h3>
                     <p>Gefrituurde garnalen en groenten</p>
-                    <input type="checkbox" id="item3" hidden>
-                    <label for="item3" class="add-btn">Toevoegen</label>
+                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
                     <span class="price">€12,00</span>
                 </div>
             </div>
 
             <!-- JAPANESE PRODUCT 4 -->
-            <div class="product">
+            <div class="product" data-id="4" data-name="Teriyaki Chicken" data-price="11.00">
                 <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
                 <div class="product-info">
                     <h3>Teriyaki Chicken</h3>
                     <p>Kip in sojasaus met rijst</p>
-                    <input type="checkbox" id="item4" hidden>
-                    <label for="item4" class="add-btn">Toevoegen</label>
+                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
                     <span class="price">€11,00</span>
                 </div>
             </div>
 
             <!-- JAPANESE PRODUCT 5 -->
-            <div class="product">
+            <div class="product" data-id="5" data-name="Udon Noodles" data-price="8.50">
                 <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
                 <div class="product-info">
                     <h3>Udon Noodles</h3>
                     <p>Dikke noedels in dashi-bouillon</p>
-                    <input type="checkbox" id="item5" hidden>
-                    <label for="item5" class="add-btn">Toevoegen</label>
+                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
                     <span class="price">€8,50</span>
                 </div>
             </div>
 
             <!-- JAPANESE PRODUCT 6 -->
-            <div class="product">
+            <div class="product" data-id="6" data-name="Okonomiyaki" data-price="18.00">
                 <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
                 <div class="product-info">
                     <h3>Okonomiyaki</h3>
                     <p>Bloem, dashi (visbouillon), ei, witte kool, lente-ui, gember, buikspek,
                         Okonomiyakisaus, Japanse mayonaise, aonori (zeewier), katsuobushi (bonito-vlokken)</p>
-                    <input type="checkbox" id="item6" hidden>
-                    <label for="item6" class="add-btn">Toevoegen</label>
+                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
                     <span class="price">€18,00</span>
                 </div>
             </div>
@@ -136,12 +148,13 @@
 
     </div>
 
-    
+
     <footer>
         <!-- Footer: change credit text or add links here -->
         gemaakt door Anthony Gerrits
     </footer>
 
+    <script src="restaurant.js"></script>
 </body>
 
 </html>
