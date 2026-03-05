@@ -261,10 +261,10 @@ button:hover {
 
 /* MAIN CONTAINER */
 .container {
-    width: 75%;
+    width: 90%;
+    max-width: 1200px;
     padding: 20px;
-    /* override the earlier centered margin and nudge the whole layout a bit to the left */
-    margin: 40px 0 0 20px;
+    margin: 40px auto 0;
 }
 
 /* NAVBAR */
@@ -400,73 +400,18 @@ nav a:hover {
     font-weight: 600;
 }
 
-/* CART */
 
-/* Fixed side cart: white block on the right with visible text */
-.cart {
-    position: fixed;
-    right: 20px;
-    top: 120px;
-    width: 300px;
-    background-color: #F5F5F2; /* white block */
-    color: #1C1C1C;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    border-radius: 8px;
-    z-index: 50;
-}
 
-.cart h2 {
-    color: #1C1C1C;
-    margin-bottom: 6px;
-}
 
-.cart-items {
-    background-color: transparent;
-    padding: 8px 0;
-    color: #1C1C1C;
-    min-height: 80px;
-}
 
-.cart-item {
-    display: block;
-    margin-bottom: 8px;
-}
 
-/* CHECKBOX FUNCTIONALITY */
-#item1:checked ~ .cart .item1 {
-    display: block;
-}
 
-#item2:checked ~ .cart .item2 {
-    display: block;
-}
 
-#item3:checked ~ .cart .item3 {
-    display: block;
-}
 
-#item4:checked ~ .cart .item4 {
-    display: block;
-}
 
-#item5:checked ~ .cart .item5 {
-    display: block;
-}
 
-#item6:checked ~ .cart .item6 {
-    display: block;
-}
 
-.checkout {
-    background-color: #BC002D;
-    padding: 20px;
-    color: white;
-    text-align: center;
-}
+
 
 /* FOOTER */
 footer {
