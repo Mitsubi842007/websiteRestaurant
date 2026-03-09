@@ -538,7 +538,7 @@ body {
 
 
 .cart-toggle-btn {
-    background-color: #D4AF37;
+    background-color: #D32F2F;
     color: #1C1C1C;
     border: none;
     padding: 10px 15px;
@@ -563,7 +563,7 @@ body {
     width: 400px;
     height: 100vh;
     background-color: #2A2A2A;
-    border-left: 3px solid #D4AF37;
+    border-left: 3px solid #D32F2F;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
@@ -583,19 +583,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #D4AF37;
+    border-bottom: 2px solid #D32F2F;
 }
 
 .cart-header h2 {
     margin: 0;
-    color: #D4AF37;
+    color: white;
     font-size: 24px;
 }
 
 .cart-close-btn {
     background: none;
     border: none;
-    color: #D4AF37;
+    color: #D32F2F;
     font-size: 32px;
     cursor: pointer;
     padding: 0;
@@ -603,7 +603,7 @@ body {
 }
 
 .cart-close-btn:hover {
-    color: #E8C547;
+    color: #D32F2F;
 }
 
 /* Cart items container */
@@ -647,7 +647,7 @@ body {
 
 .cart-item-price {
     margin: 0;
-    color: #D4AF37;
+    color: white;
     font-size: 13px;
 }
 
@@ -661,8 +661,8 @@ body {
 
 .qty-btn {
     background-color: #404040;
-    border: 1px solid #D4AF37;
-    color: #D4AF37;
+    border: 1px solid ;
+    color: #D32F2F;
     width: 28px;
     height: 28px;
     border-radius: 3px;
@@ -673,7 +673,7 @@ body {
 }
 
 .qty-btn:hover {
-    background-color: #D4AF37;
+    background-color: #D32F2F;
     color: #1C1C1C;
 }
 
@@ -682,7 +682,7 @@ body {
     height: 28px;
     text-align: center;
     background-color: #404040;
-    border: 1px solid #D4AF37;
+    border: 1px solid #D32F2F;
     color: #F5F5F2;
     border-radius: 3px;
     font-family: 'Quintessential', cursive;
@@ -712,7 +712,7 @@ body {
 
 /* Cart item total */
 .cart-item-total {
-    color: #D4AF37;
+    color: #D32F2F;
     font-weight: bold;
     font-size: 14px;
     white-space: nowrap;
@@ -723,7 +723,7 @@ body {
 /* Cart footer */
 .cart-footer {
     background-color: #1C1C1C;
-    border-top: 2px solid #D4AF37;
+    border-top: 2px solid #D32F2F;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -751,7 +751,7 @@ body {
 
 /* Buttons in cart footer */
 .checkout-btn {
-    background-color: #4CAF50;
+    background-color: #D32F2F;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -770,7 +770,7 @@ body {
 .clear-cart-btn {
     background-color: #555;
     color: #F5F5F2;
-    border: 1px solid #D4AF37;
+    border: 1px solid #D32F2F;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
