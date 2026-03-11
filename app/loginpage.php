@@ -22,11 +22,11 @@
             </div>
 
             <nav class="menu">
-                <a href="homepage.html">Home</a>
-                <a href="contact.html">Contact</a>
-                <a href="informatie.html">Informatie</a>
-                <a href="menupage.html">Menu</a>
-                <a href="loginpage.html">Log in</a>
+                <a href="homepage.php">Home</a>
+                <a href="contact.php">Contact</a>
+                <a href="informatie.php">Informatie</a>
+                <a href="menupage.php">Menu</a>
+                <a href="loginpage.php">Log in</a>
             </nav>
         </header>
 

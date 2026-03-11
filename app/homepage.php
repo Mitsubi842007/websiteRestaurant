@@ -44,6 +44,18 @@ echo "Connected to database successfully!";
     //(stop) die 
     die("Sorry, database problem");
 }
+
+//define sql statement
+$sql = "SELECT * FROM studenten WHERE leeftijd > 16";
+//prepare statement
+$stmt = $pdo->prepare($sql);
+//execute statement
+$stmt->execute();
+$studenten  = $statement->fetchAll();
+echo "<pre>";
+print_r($studenten);
+echo "</pre>";
+
 ?>
 
     <div class="container">
