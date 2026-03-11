@@ -11,6 +11,48 @@
 </head>
 
 <body>
+    <?php
+$host = 'db';
+$user = 'user';
+$pass = 'password';
+$db = 'mydatabase';
+$password = 'password';
+$charset = 'utf8mb4';
+
+//pdo opties
+$opties = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
+
+//dsn
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+try { 
+// create the connection
+$pdo = new pdo ($dsn, $user, $pass, $opties);
+//succes melding
+echo "Connected to database successfully!";
+} catch (PDOException $e) {
+    //error melding
+    echo "Connection failed: " . $e->getMessage();
+    //(stop) die 
+    die("Sorry, database problem");
+}
+
+//define sql statement
+$sql = "SELECT * FROM studenten WHERE leeftijd > 16";
+//prepare statement
+$stmt = $pdo->prepare($sql);                                        
+//execute statement
+$stmt->execute();
+$studenten  = $statement->fetchAll();
+echo "<pre>";
+print_r($studenten);
+echo "</pre>";
+?>
+
     <!-- SHOPPING CART PANEL -->
     <div class="cart-panel">
         <div class="cart-header">
@@ -69,7 +111,7 @@
                     <h3>Sushi Platter</h3>
                     <p>Assortiment verse sushi</p>
                     <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€15,00</span>
+                    <span class="price">€12,00</span>
                 </div>
             </div>
 
@@ -105,7 +147,7 @@
                     <h3>Tempura Mix</h3>
                     <p>Gefrituurde garnalen en groenten</p>
                     <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€12,00</span>
+                    <span class="price">€6,00</span>
                 </div>
             </div>
 
@@ -116,7 +158,7 @@
                     <h3>Teriyaki Chicken</h3>
                     <p>Kip in sojasaus met rijst</p>
                     <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€11,00</span>
+                    <span class="price">€10,00</span>
                 </div>
             </div>
 
@@ -139,7 +181,7 @@
                     <p>Bloem, dashi (visbouillon), ei, witte kool, lente-ui, gember, buikspek,
                         Okonomiyakisaus, Japanse mayonaise, aonori (zeewier), katsuobushi (bonito-vlokken)</p>
                     <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€18,00</span>
+                    <span class="price">€11,00</span>
                 </div>
             </div>
 

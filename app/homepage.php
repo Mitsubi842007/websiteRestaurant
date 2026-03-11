@@ -15,46 +15,6 @@
 
 <body>
     
-<?php
-$host = 'db';
-$user = 'user';
-$pass = 'password';
-$db = 'mydatabase';
-$password = 'password';
-$charset = 'utf8mb4';
-
-//pdo opties
-$opties = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false,
-];
-
-//dsn
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-
-try { 
-// create the connection
-$pdo = new pdo ($dsn, $user, $pass, $opties);
-//succes melding
-echo "Connected to database successfully!";
-} catch (PDOException $e) {
-    //error melding
-    echo "Connection failed: " . $e->getMessage();
-    //(stop) die 
-    die("Sorry, database problem");
-}
-
-//define sql statement
-$sql = "SELECT * FROM studenten WHERE leeftijd > 16";
-//prepare statement
-$stmt = $pdo->prepare($sql);
-//execute statement
-$stmt->execute();
-$studenten  = $statement->fetchAll();
-echo "<pre>";
-print_r($studenten);
-echo "</pre>";
 
 ?>
 
