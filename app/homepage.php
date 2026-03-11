@@ -14,6 +14,37 @@
 </head>
 
 <body>
+    
+<?php
+$host = 'db';
+$user = 'user';
+$pass = 'password';
+$db = 'mydatabase';
+$password = 'password';
+$charset = 'utf8mb4';
+
+//pdo opties
+$opties = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
+
+//dsn
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+try { 
+// create the connection
+$pdo = new pdo ($dsn, $user, $pass, $opties);
+//succes melding
+echo "Connected to database successfully!";
+} catch (PDOException $e) {
+    //error melding
+    echo "Connection failed: " . $e->getMessage();
+    //(stop) die 
+    die("Sorry, database problem");
+}
+?>
 
     <div class="container">
         <!-- `.container` centers content and limits max width. Change percent or max-width in CSS to widen/narrow the site. -->
@@ -27,11 +58,11 @@
             </div>
 
             <nav class="menu">
-                <a href="homepage.html">Home</a>
-                <a href="contact.html">Contact</a>
-                <a href="informatie.html">Informatie</a>
-                <a href="menupage.html">Menu</a>
-                <a href="loginpage.html">Log in</a>
+                <a href="homepage.php">Home</a>
+                <a href="contact.php">Contact</a>
+                <a href="informatie.php">Informatie</a>
+                <a href="menupage.php">Menu</a>
+                <a href="loginpage.php">Log in</a>
             </nav>
         </header>
 
