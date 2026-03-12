@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="restaurant.css">
-    <link rel="stylesheet" href="admin-panel.css">
+    
+    <link rel="stylesheet" href="admin.css">    
 </head>
 
 <body>
@@ -78,7 +78,7 @@
 
         function logout() {
             localStorage.removeItem('adminLoggedIn');
-            window.location.href = 'homepage.html';
+            window.location.href = 'homepage.php';
         }
 
         function renderMenuItems() {

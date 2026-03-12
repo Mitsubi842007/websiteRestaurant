@@ -12,40 +12,41 @@
 
 <body>
     <?php
-$host = 'db';
-$user = 'user';
-$pass = 'password';
-$db = 'mydatabase';
-$password = 'password';
-$charset = 'utf8mb4';
+    //variabelen 
+    $host = 'db';
+    $user = 'user';
+    $pass = 'password';
+    $db = 'mydatabase';
+    $password = 'password';
+    $charset = 'utf8mb4';
 
 
-//pdo opties
-$opties = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false,
-];
+    //pdo opties
+    $opties = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false,
+    ];
 
-//dsn
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    //dsn
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
-try { 
-// create the connection
-$pdo = new pdo ($dsn, $user, $pass, $opties);
-//succes melding
-echo "Connected to database successfully!";
-} catch (PDOException $e) {
-    //error melding
-    echo "Connection failed: " . $e->getMessage();
-    //(stop) die 
-    die("Sorry, database problem");
-}
+    try {
+        // create the connection
+        $pdo = new pdo($dsn, $user, $pass, $opties);
+        //succes melding
+        echo "Connected to database successfully!";
+    } catch (PDOException $e) {
+        //error melding
+        echo "Connection failed: " . $e->getMessage();
+        //(stop) die //die is een functie die het script stopt 
+        die("Sorry, database problem");
+    }
 
 
-?>
+    ?>
 
-    <!-- SHOPPING CART PANEL -->
+    <!-- winkel wagen -->
     <div class="cart-panel">
         <div class="cart-header">
             <h2>🛒 Winkelwagen</h2>
@@ -65,21 +66,22 @@ echo "Connected to database successfully!";
     </div>
 
     <div class="container">
-        <!-- Page container: centers content and limits width. Change `.container` in `restaurant.css` to adjust layout -->
+
 
         <header>
+            <!-- logo met titel van de restaurant -->
             <div class="logo">
                 <img src="afbeeldingen/sakura leaf logo.png" alt="Sakura leaf logo">
                 <span class="site-title">Mitsu no Sakura</span>
             </div>
-            <!-- Navigation menu: edit links here. Visual style is controlled by `.menu` in `restaurant.css` -->
+            <!-- navigatie menu: -->
             <nav class="menu">
-                 <a href="homepage.php">Home</a>
+                <a href="homepage.php">Home</a>
                 <a href="contact.php">Contact</a>
                 <a href="informatie.php">Informatie</a>
                 <a href="menupage.php">Menu</a>
                 <a href="loginpage.php">Log in</a>
-                <button class="cart-toggle-btn" id="openCart">🛒 (<span id="cartCount">0</span>)</button>
+            <button class="cart-toggle-btn" id="openCart">🛒 (<span id="cartCount">0</span>)</button>
             </nav>
         </header>
 
@@ -183,7 +185,7 @@ echo "Connected to database successfully!";
 
 
     <footer>
-        <!-- Footer: change credit text or add links here -->
+
         gemaakt door Anthony Gerrits
     </footer>
 

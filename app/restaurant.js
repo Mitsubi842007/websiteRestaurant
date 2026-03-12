@@ -1,10 +1,23 @@
 // Shopping Cart
 let cart = [];
 
+//informatie van de winkelwagen code
+
+//let = 
+
+
+
+
+
+
+
+
+
+
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
-
+//laad de winkelwagen zien
 function renderCart() {
     const container = document.getElementById('cartItems');
     if (cart.length === 0) {
@@ -68,7 +81,7 @@ function removeItem(id) {
 function updateCount() {
     document.getElementById('cartCount').textContent = cart.reduce((sum, i) => sum + i.quantity, 0);
 }
-
+//hier laat die zien de totale prijs van de rekening die je moet betalen in je winkelwagen
 function updateTotal() {
     document.getElementById('cartTotal').textContent = '€' + cart.reduce((sum, i) => sum + i.price * i.quantity, 0).toFixed(2);
 }
@@ -86,8 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
     //betaling en totaal prijs van de winkelwagen
     document.querySelector('.checkout-btn').onclick = () => {
         if (cart.length === 0) {
+            //als er niks in de winkelwagen dan komt dit melding te zien
             alert('je hebt een lege winkelwagen!');
         } else {
+            //anders als er toch producten er zijn dan krijg je deze melding te zien
             alert('Bedankt! Totaal: €' + cart.reduce((sum, i) => sum + i.price * i.quantity, 0).toFixed(2));
             cart = [];
             saveCart();

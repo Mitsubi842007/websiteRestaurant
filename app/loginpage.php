@@ -112,7 +112,7 @@
 
                 if (code === adminPassword) {
                     localStorage.setItem('adminLoggedIn', 'true');
-                    window.location.href = 'admin-panel.html';
+                    window.location.href = 'admin.php';
                 } else {
                     alert('Verkeerde admin code!');
                     document.getElementById('adminCode').value = '';
