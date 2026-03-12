@@ -19,6 +19,7 @@ $db = 'mydatabase';
 $password = 'password';
 $charset = 'utf8mb4';
 
+
 //pdo opties
 $opties = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -41,16 +42,7 @@ echo "Connected to database successfully!";
     die("Sorry, database problem");
 }
 
-//define sql statement
-$sql = "SELECT * FROM studenten WHERE leeftijd > 16";
-//prepare statement
-$stmt = $pdo->prepare($sql);                                        
-//execute statement
-$stmt->execute();
-$studenten  = $statement->fetchAll();
-echo "<pre>";
-print_r($studenten);
-echo "</pre>";
+
 ?>
 
     <!-- SHOPPING CART PANEL -->
