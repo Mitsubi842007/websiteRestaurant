@@ -12,38 +12,35 @@
 
 <body>
     <?php
-    //variabelen 
-    $host = 'db';
-    $user = 'user';
-    $pass = 'password';
-    $db = 'mydatabase';
-    $password = 'password';
-    $charset = 'utf8mb4';
-
-
-    //pdo opties
-    $opties = [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ];
-
-    //dsn
-    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-
-    try {
-        // create the connection
-        $pdo = new pdo($dsn, $user, $pass, $opties);
-        //succes melding
-        echo "Connected to database successfully!";
-    } catch (PDOException $e) {
-        //error melding
-        echo "Connection failed: " . $e->getMessage();
-        //(stop) die //die is een functie die het script stopt 
-        die("Sorry, database problem");
-    }
-
-
+    
+$host = "db";
+$db = "mydatabase";
+$user = "user";
+$password = "password";
+$charset = "utf8mb4";
+ 
+ 
+$opties = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
+ 
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+ 
+try{
+    $pdo = new PDO($dsn, $user, $password, $opties);
+    echo "Connected to the database successfully!";
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+    die("Unable to connect to the database.");
+}
+ $sql =  "SELECT * FROM `J eten`";
+ 
+ $statement = $pdo->prepare($sql);
+ $statement->execute();
+ $Jeten = $statement->fetchAll() ;
+ print_r($Jeten);
     ?>
 
     <!-- winkel wagen -->
@@ -81,7 +78,7 @@
                 <a href="informatie.php">Informatie</a>
                 <a href="menupage.php">Menu</a>
                 <a href="loginpage.php">Log in</a>
-            <button class="cart-toggle-btn" id="openCart">🛒 (<span id="cartCount">0</span>)</button>
+                <button class="cart-toggle-btn" id="openCart">🛒 (<span id="cartCount">0</span>)</button>
             </nav>
         </header>
 

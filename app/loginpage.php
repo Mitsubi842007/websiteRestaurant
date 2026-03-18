@@ -43,13 +43,13 @@
                 </div>
 
                 <!-- LOGIN TYPE SELECTOR -->
-                <div class="login-type-selector" style="margin-bottom: 20px;">
+                <!-- <div class="login-type-selector" style="margin-bottom: 20px;">
                     <button type="button" class="login-type-btn active" data-type="user">Klant</button>
                     <button type="button" class="login-type-btn" data-type="admin">Admin</button>
-                </div>
+                </div> -->
 
                 <!-- USER LOGIN FORM -->
-                <form id="userLoginForm" action="#" method="post">
+                <form name="userLoginForm" action="" method="post">
                     <label for="email">E-mailadres</label>
                     <input id="email" name="email" type="email" placeholder="jouw@voorbeeld.nl" required>
 
@@ -62,7 +62,13 @@
                         <a href="#">Wachtwoord vergeten?</a>
                     </div>
                 </form>
+<?php
+print_r($_POST);
 
+
+
+
+?>
                 <!-- ADMIN LOGIN FORM -->
                 <form id="adminLoginForm" action="#" method="post" style="display: none;">
                     <label for="adminCode">Admin Code</label>
@@ -80,46 +86,7 @@
 
     </div>
 
-    <script>
-        // JavaScript voor het wisselen tussen klant en admin login, en dat je later in de admin page komt als je de juiste code invoert (de code is 'admin')
-        document.addEventListener('DOMContentLoaded', () => {
-            const loginTypeButtons = document.querySelectorAll('.login-type-btn');
-            const userLoginForm = document.getElementById('userLoginForm');
-            const adminLoginForm = document.getElementById('adminLoginForm');
-
-            // kan aanpassen van klant en admin log in formulier door op de knoppen te klikken
-            loginTypeButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    loginTypeButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    if (btn.dataset.type === 'admin') {
-                        userLoginForm.style.display = 'none';
-                        adminLoginForm.style.display = 'block';
-
-                    } else {
-                        userLoginForm.style.display = 'block';
-                        adminLoginForm.style.display = 'none';
-                    }
-                });
-            });
-
-            // admin login: controleert of de ingevoerde code hetzelfde is als de standaard admin code ('admin') en stuurt je naar de admin panel als het goed is, anders krijg je een foutmelding
-            adminLoginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const code = document.getElementById('adminCode').value;
-                const adminPassword = 'admin'; // makkelijke code 
-
-                if (code === adminPassword) {
-                    localStorage.setItem('adminLoggedIn', 'true');
-                    window.location.href = 'admin.php';
-                } else {
-                    alert('Verkeerde admin code!');
-                    document.getElementById('adminCode').value = '';
-                }
-            });
-        });
-    </script>
+ 
 
     </div>
 
