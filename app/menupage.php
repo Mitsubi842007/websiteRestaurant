@@ -105,77 +105,15 @@ try{
                     <span class="price">€12,00</span>
                 </div>
             </div>
+            <?php
+foreach ($naam = $Jeten) {
+$naam = $Jeten{"naam"};
+$omschrijving = $Jeten{""};
 
-            <!-- JAPANESE PRODUCT 2 -->
-            <div class="product" data-id="2" data-name="Ramen Bowl" data-price="9.50">
-                <div class="product-img"><img src="afbeeldingen/beef ramen bowl.jpg" alt="Sushi party platter"></div>
-                <div class="product-info">
-                    <h3>Ramen Bowl</h3>
-                    <p>Top sirloin steak (boneless) ,
-                        Black pepper ,
-                        Beef / oriental-flavored ramen noodles ,
-                        Vegetable oil
-                        ,
-                        Water
-                        ,
-                        Onion
-                        ,
-                        Garlic
-                        ,
-                        Fresh ginger
-                        ,
-                        Miso paste
-                    </p>
-                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€9,50</span>
-                </div>
-            </div>
 
-            <!-- JAPANESE PRODUCT 3 -->
-            <div class="product" data-id="3" data-name="Tempura Mix" data-price="12.00">
-                <div class="product-img"><img src="afbeeldingen/tempura.jpg" alt="Sushi party platter"></div>
-                <div class="product-info">
-                    <h3>Tempura Mix</h3>
-                    <p>Gefrituurde garnalen en groenten</p>
-                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€6,00</span>
-                </div>
-            </div>
-
-            <!-- JAPANESE PRODUCT 4 -->
-            <div class="product" data-id="4" data-name="Teriyaki Chicken" data-price="11.00">
-                <div class="product-img"><img src="afbeeldingen/Teriyaki Chicken.jpg" alt="Sushi party platter"></div>
-                <div class="product-info">
-                    <h3>Teriyaki Chicken</h3>
-                    <p>Kip in sojasaus met rijst</p>
-                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€10,00</span>
-                </div>
-            </div>
-
-            <!-- JAPANESE PRODUCT 5 -->
-            <div class="product" data-id="5" data-name="Udon Noodles" data-price="8.50">
-                <div class="product-img"><img src="afbeeldingen/Udon Noodles.jpg" alt="Sushi party platter"></div>
-                <div class="product-info">
-                    <h3>Udon Noodles</h3>
-                    <p>Dikke noedels in dashi-bouillon</p>
-                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€8,50</span>
-                </div>
-            </div>
-
-            <!-- JAPANESE PRODUCT 6 -->
-            <div class="product" data-id="6" data-name="Okonomiyaki" data-price="18.00">
-                <div class="product-img"><img src="afbeeldingen/Okonomiyaki.jpg" alt="Sushi party platter"></div>
-                <div class="product-info">
-                    <h3>Okonomiyaki</h3>
-                    <p>Bloem, dashi (visbouillon), ei, witte kool, lente-ui, gember, buikspek,
-                        Okonomiyakisaus, Japanse mayonaise, aonori (zeewier), katsuobushi (bonito-vlokken)</p>
-                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€11,00</span>
-                </div>
-            </div>
-
+}
+        
+?>
         </section>
 
     </div>

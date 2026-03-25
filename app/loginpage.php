@@ -30,63 +30,39 @@
             </nav>
         </header>
 
-        <!-- LOGIN AREA -->
-        <section class="login-page">
-            <!-- banner area: currently holds a small placeholder photo for PFP -->
-            <div class="login-banner">
-                <img src="path/to/pfp-placeholder.png" alt="PFP placeholder">
-            </div>
-            <div class="login-card">
-                <div class="login-header">
-                    <h2>Welkom</h2>
-                    <p>Log in om verder te gaan.</p>
+        <body>
+            <!-- LOGIN AREA -->
+            <section class="login-page">
+                <!-- banner area: currently holds a small placeholder photo for PFP -->
+                <div class="login-banner">
+                    <img src="path/to/pfp-placeholder.png" alt="PFP placeholder">
+                </div>
+                <div class="login-card">
+                    <div class="login-header">
+                        <h2>Welkom</h2>
+                        <p>Log in om verder te gaan.</p>
+                    </div>
+
+
+                    <!-- USER LOGIN FORM -->
+                    <form name="register" action="loginpage.php" method="post">
+                        <p>email adress : <input type="text" name="email" /></p>
+                        <p>wachtwoord : <input type="text" name="wachtwoord" /></p>
+                        <p><input type="submit" name="submit" value="sign in" /></p>
+
+                        <?php
+
+                      
+
+
+
+                        ?>
+
+
+
                 </div>
 
-                <!-- LOGIN TYPE SELECTOR -->
-                <!-- <div class="login-type-selector" style="margin-bottom: 20px;">
-                    <button type="button" class="login-type-btn active" data-type="user">Klant</button>
-                    <button type="button" class="login-type-btn" data-type="admin">Admin</button>
-                </div> -->
 
-                <!-- USER LOGIN FORM -->
-                <form name="userLoginForm" action="" method="post">
-                    <label for="email">E-mailadres</label>
-                    <input id="email" name="email" type="email" placeholder="jouw@voorbeeld.nl" required>
-
-                    <label for="password">Wachtwoord</label>
-                    <input id="password" name="password" type="password" placeholder="••••••••" required>
-
-                    <button type="submit">log in</button>
-
-                    <div class="login-footer">
-                        <a href="#">Wachtwoord vergeten?</a>
-                    </div>
-                </form>
-<?php
-print_r($_POST);
-
-
-
-
-?>
-                <!-- ADMIN LOGIN FORM -->
-                <form id="adminLoginForm" action="#" method="post" style="display: none;">
-                    <label for="adminCode">Admin Code</label>
-                    <label style="font-size: 12px; color: #999;"></label>
-                    <input id="adminCode" type="password" placeholder="Voer admin code in" required>
-
-                    <button type="submit">log in</button>
-
-                    <div class="login-footer" style="text-align: center; font-size: 12px; color: #999;">
-                        Standaard code: <strong>admin</strong>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-    </div>
-
- 
 
     </div>
 
