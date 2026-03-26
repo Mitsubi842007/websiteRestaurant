@@ -12,55 +12,38 @@
 
 <body>
     <?php
-    
-$host = "db";
-$db = "mydatabase";
-$user = "user";
-$password = "password";
-$charset = "utf8mb4";
- 
- 
-$opties = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false,
-];
- 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
- 
-try{
-    $pdo = new PDO($dsn, $user, $password, $opties);
-    echo "Connected to the database successfully!";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-    die("Unable to connect to the database.");
-}
- $sql =  "SELECT * FROM `J eten`";
- 
- $statement = $pdo->prepare($sql);
- $statement->execute();
- $Jeten = $statement->fetchAll() ;
- print_r($Jeten);
+
+    $host = "db";
+    $db = "mydatabase";
+    $user = "user";
+    $password = "password";
+    $charset = "utf8mb4";
+
+
+    $opties = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false,
+    ];
+
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+    try {
+        $pdo = new PDO($dsn, $user, $password, $opties);
+        echo "Connected to the database successfully!";
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+        die("Unable to connect to the database.");
+    }
+    $sql = "SELECT * FROM `J eten`";
+
+    $statement = $pdo->prepare($sql);
+    $statement->execute();
+    $Jeten = $statement->fetchAll();
+    print_r($Jeten);
     ?>
 
-    <!-- winkel wagen -->
-    <div class="cart-panel">
-        <div class="cart-header">
-            <h2>🛒 Winkelwagen</h2>
-            <button class="cart-close-btn" id="closeCart">×</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <p class="empty-cart-msg">Je winkelwagen is leeg</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <strong>Totaal:</strong>
-                <span id="cartTotal">€0,00</span>
-            </div>
-            <button class="checkout-btn">Bestellen</button>
-            <button class="clear-cart-btn" id="clearCart">Winkelwagen leegmaken</button>
-        </div>
-    </div>
+  
 
     <div class="container">
 
@@ -78,8 +61,7 @@ try{
                 <a href="informatie.php">Informatie</a>
                 <a href="menupage.php">Menu</a>
                 <a href="loginpage.php">Log in</a>
-                <button class="cart-toggle-btn" id="openCart">🛒 (<span id="cartCount">0</span>)</button>
-            </nav>
+               
         </header>
 
         <section class="hero">
@@ -95,25 +77,35 @@ try{
 
         <section class="products">
 
-            <!-- JAPANESE PRODUCT 1 -->
-            <div class="product" data-id="1" data-name="Sushi Platter" data-price="15.00">
-                <div class="product-img"><img src="afbeeldingen/sushi-party-platte.jpg" alt="Sushi party platter"></div>
-                <div class="product-info">
-                    <h3>Sushi Platter</h3>
-                    <p>Assortiment verse sushi</p>
-                    <button class="add-btn" onclick="addItem(this)">Toevoegen</button>
-                    <span class="price">€12,00</span>
-                </div>
-            </div>
+
             <?php
-foreach ($naam = $Jeten) {
-$naam = $Jeten{"naam"};
-$omschrijving = $Jeten{""};
 
 
-}
-        
-?>
+            foreach ($Jeten as $gerecht) {
+
+                $naam = $gerecht["naam"];
+                $beschrijving = $gerecht["beschrijving"];
+                $prijs = $gerecht["prijs"];
+                $image = $gerecht["image"];
+
+                if ($image == "") {
+                    $image = "placeholder.jpg";
+            
+                }
+
+
+                echo "<div class='product' data-id='1' data-name='Sushi Platter' $prijs='15.00'>";
+                echo "<div class='product-img'><img alt='' src='afbeeldingen/$image'></div>";
+                echo "<div class='product-info'>";
+                echo "<h3>$naam</h3>";
+                echo "<p>$beschrijving</p>";
+                echo " <span class='price'>$prijs</span>";
+                echo "       </div>";
+                echo "  </div>";
+            }
+
+
+            ?>
         </section>
 
     </div>
