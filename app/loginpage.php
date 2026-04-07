@@ -1,3 +1,61 @@
+<?php
+
+$host="localhost";
+$user="root";
+$password="";
+$db="user";
+
+session_start();
+
+
+$data=mysqli_connect($host,$user,$password,$db);
+
+if($data===false)
+{
+	die("connection error");
+}
+
+
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+	$username=$_POST["username"];
+	$password=$_POST["password"];
+
+
+	$sql="select * from login where username='".$username."' AND password='".$password."' ";
+
+	$result=mysqli_query($data,$sql);
+
+	$row=mysqli_fetch_array($result);
+
+	if($row["usertype"]=="user")
+	{	
+
+		$_SESSION["username"]=$username;
+
+		header("location:menupage.php");
+	}
+
+	elseif($row["usertype"]=="admin")
+	{
+
+		$_SESSION["username"]=$username;
+		
+		header("location:admin.php");
+	}
+
+	else
+	{
+		echo "username or password incorrect";
+	}
+
+}
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -31,32 +89,46 @@
         </header>
 
         <body>
+            <?php 
+            $_SESSION
+            
+            
+            
+            
+            ?>
+
             <!-- LOGIN AREA -->
-            <section class="login-page">
-                <!-- banner area: currently holds a small placeholder photo for PFP -->
-                <div class="login-banner">
-                    <img src="path/to/pfp-placeholder.png" alt="PFP placeholder">
-                </div>
-                <div class="login-card">
-                    <div class="login-header">
-                        <h2>Welkom</h2>
-                        <p>Log in om verder te gaan.</p>
-                    </div>
+     <center> 
+<h1>login form</h1>
+<br><br><br><><br>
+<div style="background-color: grey; width: 500px;"> 
+<br><br>
+
+<form action="#"method="POST">
+
+<div>
+<label>username</label>
+<input type="text"name="username"required>
+</div>
+<br><br>
+<div>
+   <label>password</label>
+<input type="text"name="password"required>
+</div>
+<br><br>
+<div>
+<input type ="submit"value="login">
+</div>
 
 
-                    <!-- USER LOGIN FORM -->
-                    <form name="register" action="loginpage.php" method="post">
-                        <p>email adress : <input type="text" name="email" /></p>
-                        <p>wachtwoord : <input type="text" name="wachtwoord" /></p>
-                        <p><input type="submit" name="submit" value="sign in" /></p>
-
-                        <?php
-
-                      
+</form>
 
 
+<br><br>
+</div>
+     </center>
 
-                        ?>
+                        
 
 
 
