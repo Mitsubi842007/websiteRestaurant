@@ -1,58 +1,34 @@
 <?php
 
-$host="localhost";
-$user="root";
-$password="";
-$db="user";
-
 session_start();
-
-
-$data=mysqli_connect($host,$user,$password,$db);
-
-if($data===false)
-{
-	die("connection error");
-}
-
+include("pdo.php");
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
 	$username=$_POST["username"];
 	$password=$_POST["password"];
 
-
-	$sql="select * from login where username='".$username."' AND password='".$password."' ";
-
-	$result=mysqli_query($data,$sql);
-
-	$row=mysqli_fetch_array($result);
+	$sql="SELECT * FROM login WHERE username=:username AND password=:password";
+	
+	$statement=$pdo->prepare($sql);
+	$statement->execute([":username"=>$username, ":password"=>$password]);
+	$row=$statement->fetch();
 
 	if($row["usertype"]=="user")
 	{	
-
 		$_SESSION["username"]=$username;
-
 		header("location:menupage.php");
 	}
-
 	elseif($row["usertype"]=="admin")
 	{
-
 		$_SESSION["username"]=$username;
-		
 		header("location:admin.php");
 	}
-
 	else
 	{
 		echo "username or password incorrect";
 	}
-
 }
-
-
-
 
 ?>
 
@@ -84,7 +60,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 <a href="contact.php">Contact</a>
                 <a href="informatie.php">Informatie</a>
                 <a href="menupage.php">Menu</a>
-                <a href="loginpage.php">Log in</a>
+                <?php if(isset($_SESSION["username"])) { ?>
+                    <a href="uitloggen.php">Log out</a>
+                <?php } else { ?>
+                    <a href="loginpage.php">Log in</a>
+                <?php } ?>
             </nav>
         </header>
 

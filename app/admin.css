@@ -1,185 +1,104 @@
-body {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial
+/* ===== ADMIN SPECIFIC STYLES ===== */
+
+.admin-main {
+    margin-top: 40px;
 }
 
 .admin-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px
-}
-
-.logout-btn {
-    background: #e74c3c;
-    color: #fff;
-    border: 0;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer
-}
-
-.logout-btn:hover {
-    background: #c0392b
-}
-
-.add-item-form {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
     margin-bottom: 30px;
-    border: 1px solid #ddd
+    padding: 20px;
+    background-color: #F5F5F2;
+    color: #1C1C1C;
 }
 
-.form-group {
-    margin-bottom: 15px
+.admin-header h1 {
+    margin: 0;
+    font-size: 28px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box
-}
-
-.form-group textarea {
-    min-height: 60px
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: 0;
-    border-color: #8b6f47
-}
-
-.form-buttons {
-    display: flex;
-    gap: 10px
-}
-
-button {
+.btn-new {
+    background-color: #BC002D;
+    color: #F5F5F2;
     padding: 10px 20px;
-    border: 0;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: #fff
+    font-family: 'Quintessential', cursive;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
-.btn-add {
-    background: #27ae60
+.btn-new:hover {
+    opacity: 0.8;
 }
 
-.btn-add:hover {
-    background: #229954
+/* ===== TABLE STYLES ===== */
+
+.gerechten-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #F5F5F2;
+    margin-bottom: 40px;
 }
 
-.btn-reset {
-    background: #95a5a6
+.gerechten-table thead {
+    background-color: #BC002D;
 }
 
-.btn-reset:hover {
-    background: #7f8c8d
-}
-
-.menu-items-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px
-}
-
-.menu-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.gerechten-table th {
     padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1)
-}
-
-.menu-card h3 {
-    color: #333;
-    margin: 0 0 8px 0
-}
-
-.menu-card p {
-    color: #666;
-    font-size: 13px;
-    margin: 8px 0;
-    line-height: 1.4
-}
-
-.price {
+    text-align: left;
+    color: #F5F5F2;
     font-weight: bold;
-    color: #8b6f47;
-    font-size: 16px;
-    display: block;
-    margin: 10px 0
+    font-size: 14px;
 }
 
-.card-buttons {
+.gerechten-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    color: #1C1C1C;
+}
+
+.gerechten-table tr:hover {
+    background-color: #efefef;
+}
+
+.actions {
     display: flex;
-    gap: 8px;
-    margin-top: 12px
+    gap: 10px;
 }
 
-.btn-delete,
-.btn-edit {
-    padding: 8px 12px;
-    font-size: 12px;
-    flex: 1
-}
-
+.btn-edit,
 .btn-delete {
-    background: #e74c3c
-}
-
-.btn-delete:hover {
-    background: #c0392b
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-edit {
-    background: #f39c12
+    background-color: #BC002D;
+    color: #F5F5F2;
 }
 
 .btn-edit:hover {
-    background: #e67e22
+    opacity: 0.8;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .5);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center
+.btn-delete {
+    background-color: #1C1C1C;
+    color: #F5F5F2;
 }
 
-.modal.active {
-    display: flex
-}
-
-.modal-content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    max-width: 400px;
-    width: 90%
-}
-
-.modal-content h3 {
-    margin-top: 0;
-    color: #333
+.btn-delete:hover {
+    opacity: 0.8;
 }
