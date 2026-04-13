@@ -55,6 +55,15 @@ if(!$user || $user["usertype"] != "admin") {
         <main class="admin-main">
             <div class="admin-header">
                 <h1>Gerechten Beheer</h1>
+                <?php 
+                
+                
+                
+                
+                
+                
+                
+                ?>
            
         
                  

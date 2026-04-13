@@ -1,10 +1,35 @@
 <?php 
 SESSION_start();
+//stap 1: maak verbinding met de database 
+require_once("includes/pdo.php");
 
 
+//stap 2: controleer of er gezocht is of niet 
+$hasUserSearched = isset($_GET["search"]) && $_GET["search"] !=="";
 
+//stap 3: heeft de gebruiker iets gezocht 
+if ($hasUserSearched) { 
 
+// stap 3a: ja zoek dan de naam 
+$searchstring = $_GET["search"];
+$searchstringWildcard = "%". $searchstring . "%";
+$sql = "SELECT * FROM jeten WHERE naam LIKE :search1 OR beschrijving LIKE :search2";
+$statement = $pdo->prepare($sql);
+$statement->bindParam(":search1", $searchstringWildcard);
+$statement->bindParam(":search2", $searchstringWildcard);
+$statement->execute();
 
+} else {
+
+// stap 3b: nee dan geen zoekterm of iets meegeven
+$sql = "SELECT * FROM jeten";
+$statement = $pdo->prepare($sql);
+$statement->execute();
+
+}
+
+//stap 4: haal alle informatie op als een array 
+$jeten = $statement->fetchAll();
 ?>
 
 <!DOCTYPE html>
