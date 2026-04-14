@@ -1,7 +1,7 @@
 <?php 
 SESSION_start();
 //stap 1: maak verbinding met de database 
-require_once("includes/pdo.php");
+require_once("pdo.php");
 
 
 //stap 2: controleer of er gezocht is of niet 
@@ -13,7 +13,7 @@ if ($hasUserSearched) {
 // stap 3a: ja zoek dan de naam 
 $searchstring = $_GET["search"];
 $searchstringWildcard = "%". $searchstring . "%";
-$sql = "SELECT * FROM jeten WHERE naam LIKE :search1 OR beschrijving LIKE :search2";
+$sql = "SELECT * FROM Jeten WHERE naam LIKE :search1 OR beschrijving LIKE :search2";
 $statement = $pdo->prepare($sql);
 $statement->bindParam(":search1", $searchstringWildcard);
 $statement->bindParam(":search2", $searchstringWildcard);
@@ -22,14 +22,14 @@ $statement->execute();
 } else {
 
 // stap 3b: nee dan geen zoekterm of iets meegeven
-$sql = "SELECT * FROM jeten";
+$sql = "SELECT * FROM Jeten";
 $statement = $pdo->prepare($sql);
 $statement->execute();
 
 }
 
 //stap 4: haal alle informatie op als een array 
-$jeten = $statement->fetchAll();
+$Jeten = $statement->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@ $jeten = $statement->fetchAll();
     <?php
 include("pdo.php");
  
-    $sql = "SELECT * FROM `J eten`";
+    $sql = "SELECT * FROM `Jeten`";
 
     $statement = $pdo->prepare($sql);
     $statement->execute();
@@ -76,6 +76,16 @@ include("pdo.php");
                 <a href="loginpage.php">Log in</a>
                
         </header>
+
+        <section class="search-bar-section">
+            <form method="GET" action="menupage.php" class="search-form">
+                <input type="text" name="search" placeholder="Zoek gerechten..." class="search-input" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                <button type="submit" class="search-btn">Zoeken</button>
+                <?php if ($hasUserSearched): ?>
+                    <a href="menupage.php" class="search-reset">Wissen</a>
+                <?php endif; ?>
+            </form>
+        </section>
 
         <section class="hero">
             <!-- Hero area: background image and size are set in `.hero-placeholder` in CSS. Replace the image in `afbeeldingen/` and update CSS if needed. -->

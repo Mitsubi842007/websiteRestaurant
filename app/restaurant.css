@@ -66,7 +66,134 @@ header {
 .menu a:hover {
     opacity: 0.8;
 }
+/* ===== SEARCH BAR ===== */
 
+.search-bar-section {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 15px;
+    background-color: #F5F5F2;
+    color: #1C1C1C;
+    border: 2px solid #BC002D;
+    font-family: 'Quintessential', cursive;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #8A001F;
+    box-shadow: 0 0 5px rgba(188, 0, 45, 0.3);
+}
+
+.search-btn {
+    padding: 12px 25px;
+    background-color: #BC002D;
+    color: #F5F5F2;
+    border: none;
+    font-family: 'Quintessential', cursive;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #8A001F;
+}
+
+.search-reset {
+    padding: 12px 15px;
+    background-color: #666;
+    color: #F5F5F2;
+    text-decoration: none;
+    font-family: 'Quintessential', cursive;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.search-reset:hover {
+    background-color: #999;
+}
+.search-prompt {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #BC002D;
+    color: #F5F5F2;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.create-item-form {
+    display: grid;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.create-item-form label {
+    display: grid;
+    gap: 8px;
+    color: #1C1C1C;
+    font-size: 18px;
+}
+
+.create-item-form input,
+.create-item-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #BC002D;
+    border-radius: 4px;
+    font-family: 'Quintessential', cursive;
+    font-size: 16px;
+}
+
+.create-item-form textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.success-message,
+.error-message {
+    margin-top: 20px;
+    padding: 15px 18px;
+    border-radius: 6px;
+}
+
+.success-message {
+    background-color: #D7F3D7;
+    color: #1C4E1C;
+}
+
+.error-message {
+    background-color: #F7D7D7;
+    color: #6A1616;
+}
+
+.error-message ul {
+    list-style: inside disc;
+}
+
+
+.search-prompt strong {
+    font-weight: bold;
+    color: #FFD700;
+}
 /* ===== HERO (voor alle pagina’s) ===== */
 
 .hero {

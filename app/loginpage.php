@@ -107,15 +107,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 <br><br>
 </div>
      </center>
-
-                        
-
-
-
                 </div>
-
-
-
     </div>
 
 </body>

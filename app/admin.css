@@ -2,87 +2,212 @@
 
 .admin-main {
     margin-top: 40px;
+    padding: 20px;
+    background: linear-gradient(135deg, #F5F5F2 0%, #FAFAF8 100%);
 }
 
 .admin-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #F5F5F2;
-    color: #1C1C1C;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #BC002D 0%, #8b0024 100%);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(188, 0, 45, 0.2);
+    gap: 20px;
+}
+
+.header-content {
+    color: #F5F5F2;
 }
 
 .admin-header h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 32px;
+    color: #F5F5F2;
 }
 
-.btn-new {
-    background-color: #BC002D;
-    color: #F5F5F2;
-    padding: 10px 20px;
+.subtitle {
+    margin: 10px 0 0 0;
+    font-size: 14px;
+    color: rgba(245, 245, 242, 0.9);
+    opacity: 0.95;
+}
+
+/* ===== CREATE BUTTON ===== */
+
+.btn-create {
+    display: inline-block;
+    background-color: #F5F5F2;
+    color: #BC002D;
+    padding: 12px 28px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-family: 'Quintessential', cursive;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.btn-new:hover {
-    opacity: 0.8;
-}
-
-/* ===== TABLE STYLES ===== */
-
-.gerechten-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #F5F5F2;
-    margin-bottom: 40px;
-}
-
-.gerechten-table thead {
-    background-color: #BC002D;
-}
-
-.gerechten-table th {
-    padding: 15px;
-    text-align: left;
-    color: #F5F5F2;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.gerechten-table td {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    color: #1C1C1C;
-}
-
-.gerechten-table tr:hover {
-    background-color: #efefef;
-}
-
-.actions {
-    display: flex;
-    gap: 10px;
-}
-
-.btn-edit,
-.btn-delete {
-    width: 35px;
-    height: 35px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
     font-size: 16px;
-    transition: 0.3s;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.btn-create:hover {
+    background-color: #E8E8E5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-large {
+    padding: 16px 40px;
+    font-size: 18px;
+}
+
+/* ===== ITEMS SECTION ===== */
+
+.items-section {
+    padding: 20px;
+}
+
+/* ===== GRID LAYOUT FOR CARDS ===== */
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 0;
+}
+
+/* ===== ITEM CARD ===== */
+
+.item-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+}
+
+.item-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(188, 0, 45, 0.15);
+    border-color: #BC002D;
+}
+
+/* ===== CARD HEADER (IMAGE) ===== */
+
+.card-header {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #F5F5F2 0%, #EFEFEC 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #E8E8E5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.image-placeholder span {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    word-break: break-word;
+}
+
+/* ===== CARD BODY ===== */
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-id {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.item-naam {
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    color: #1C1C1C;
+    font-family: 'Quintessential', cursive;
+}
+
+.item-beschrijving {
+    margin: 0 0 15px 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.item-prijs {
+    font-size: 24px;
+    color: #BC002D;
+    font-weight: bold;
+    font-family: 'Quintessential', cursive;
+}
+
+/* ===== CARD FOOTER ===== */
+
+.card-footer {
+    padding: 15px 20px;
+    background: #F9F9F7;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.btn-action {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Quintessential', cursive;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .btn-edit {
@@ -91,7 +216,8 @@
 }
 
 .btn-edit:hover {
-    opacity: 0.8;
+    background-color: #8b0024;
+    transform: translateY(-2px);
 }
 
 .btn-delete {
@@ -100,5 +226,62 @@
 }
 
 .btn-delete:hover {
-    opacity: 0.8;
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+/* ===== EMPTY STATE ===== */
+
+.empty-state {
+    text-align: center;
+    padding: 80px 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.empty-state h2 {
+    font-size: 28px;
+    color: #1C1C1C;
+    margin: 20px 0;
+    font-family: 'Quintessential', cursive;
+}
+
+.empty-state p {
+    font-size: 16px;
+    color: #666;
+    margin: 15px 0 30px 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .admin-header h1 {
+        font-size: 24px;
+    }
+
+    .items-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-footer {
+        flex-direction: column;
+    }
+
+    .btn-action {
+        width: 100%;
+    }
 }
