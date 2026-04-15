@@ -1,5 +1,6 @@
 <?php
 session_start();
+//sessie beginnen
 require_once("pdo.php");
 
 if (!isset($_SESSION["username"])) {
@@ -20,38 +21,46 @@ $message = "";
 $errors = [];
 $naam = $beschrijving = $prijs = $image = "";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $naam = trim($_POST["naam"] ?? "");
-    $beschrijving = trim($_POST["beschrijving"] ?? "");
-    $prijs = trim($_POST["prijs"] ?? "");
-    $image = trim($_POST["image"] ?? "");
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $naam = trim($_POST["naam"] ?? "");
+        $beschrijving = trim($_POST["beschrijving"] ?? "");
+        $prijs = trim($_POST["prijs"] ?? "");
+        $image = trim($_POST["image"] ?? "");
 
-    if ($naam === "") $errors[] = "Naam is verplicht.";
-    if ($beschrijving === "") $errors[] = "Beschrijving is verplicht.";
-    if ($prijs === "" || !is_numeric($prijs) || floatval($prijs) < 0) $errors[] = "Voer een geldige prijs in.";
-    if ($image === "") $image = "placeholder.jpg";
+        //als er niks op deze plaats zit van de naam, beschrijving, prijs en image dan komt er dit te staand
+        if ($naam === "")
+            $errors[] = "Naam is verplicht.";
+        if ($beschrijving === "")
+            $errors[] = "Beschrijving is verplicht.";
+        if ($prijs === "" || !is_numeric($prijs) || floatval($prijs) < 0)
+            $errors[] = "Voer een geldige prijs in.";
+        if ($image === "")
+            $image = "placeholder.jpg";
 
-    if (!$errors) {
-        try {
-            $sql = "INSERT INTO Jeten (naam, beschrijving, prijs, image) VALUES (:naam, :beschrijving, :prijs, :image)";
-            $statement = $pdo->prepare($sql);
-            $statement->execute([
-                ":naam" => $naam,
-                ":beschrijving" => $beschrijving,
-                ":prijs" => number_format((float) $prijs, 2, '.', ''),
-                ":image" => $image,
-            ]);
-            $message = "Item succesvol aangemaakt.";
-            $naam = $beschrijving = $prijs = $image = "";
-        } catch (PDOException $e) {
-            $errors[] = "Er is iets fout gegaan, probeer het opnieuw.";
+        if (!$errors) {
+            try {
+                $sql2 = "INSERT INTO Jeten (naam, beschrijving, prijs, image) VALUES (:naam, :beschrijving, :prijs, :image)";
+                $statement = $pdo->prepare($sql2);
+                $statement->execute([
+                    ":naam" => $naam,
+                    ":beschrijving" => $beschrijving,
+                    ":prijs" => number_format((float) $prijs, 2, '.', ''),
+                    ":image" => $image,
+                ]);
+                //als je product gelukt is met publiseren
+                $message = "Item succesvol aangemaakt.";
+                $naam = $beschrijving = $prijs = $image = "";
+            } catch (PDOException $e) {
+                //als er iets mis is gegaan
+                $errors[] = "Er is iets fout gegaan, probeer het opnieuw.";
+            }
         }
     }
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="restaurant.css">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -91,24 +101,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <form method="POST" action="createItem.php" class="create-item-form">
                 <label>
                     Naam
-                    <input type="text" name="naam" value="<?php echo htmlspecialchars($naam); ?>" placeholder="Bijv. Sushi" required>
+                    <input type="text" name="naam" value="<?php echo htmlspecialchars($naam); ?>"
+                        placeholder="Bijv. Sushi" required>
                 </label>
                 <label>
                     Beschrijving
-                    <textarea name="beschrijving" rows="4" placeholder="Bijv. Verse sushi met zalm" required><?php echo htmlspecialchars($beschrijving); ?></textarea>
+                    <textarea name="beschrijving" rows="4" placeholder="Bijv. Verse sushi met zalm"
+                        required><?php echo htmlspecialchars($beschrijving); ?></textarea>
                 </label>
                 <label>
                     Prijs
-                    <input type="number" name="prijs" step="0.01" min="0" value="<?php echo htmlspecialchars($prijs); ?>" placeholder="Bijv. 12.50" required>
+                    <input type="number" name="prijs" step="0.01" min="0"
+                        value="<?php echo htmlspecialchars($prijs); ?>" placeholder="Bijv. 12.50" required>
                 </label>
                 <label>
                     Afbeelding bestandsnaam
-                    <input type="text" name="image" value="<?php echo htmlspecialchars($image); ?>" placeholder="Bijv. sushi.jpg">
+                    <input type="text" name="image" value="<?php echo htmlspecialchars($image); ?>"
+                        placeholder="Bijv. placeholder.jpg">
                 </label>
-                <button type="submit" class="search-btn">Item maken</button>
+                <button type="REQUEST_METHOD" class="search-btn">Item maken</button>
             </form>
-            <p style="margin-top: 16px; font-size: 14px; color: #555;"><a href="admin.php">Terug naar admin panel</a></p>
+            <!--een button dat terug gaat naar de admin pagina-->
+            <p style="margin-top: 16px; font-size: 14px; color: #555;"><a href="admin.php">Terug naar admin panel</a>
+            </p>
         </section>
     </div>
 </body>
+
 </html>
