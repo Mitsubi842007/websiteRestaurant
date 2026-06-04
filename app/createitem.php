@@ -8,14 +8,6 @@ if (!isset($_SESSION["username"])) {
     exit;
 }
 
-$sql = "SELECT * FROM login WHERE username = :username";
-$statement = $pdo->prepare($sql);
-$statement->execute([":username" => $_SESSION["username"]]);
-$user = $statement->fetch();
-if (!$user || $user["usertype"] != "admin") {
-    header("location:loginpage.php");
-    exit;
-}
 
 $message = "";
 $errors = [];
@@ -39,8 +31,8 @@ $naam = $beschrijving = $prijs = $image = "";
 
         if (!$errors) {
             try {
-                $sql2 = "INSERT INTO Jeten (naam, beschrijving, prijs, image) VALUES (:naam, :beschrijving, :prijs, :image)";
-                $statement = $pdo->prepare($sql2);
+                $sql2 = "INSERT INTO Jeten (title, naam, beschrijving, prijs, image) VALUES (:title, :naam, :beschrijving, :prijs, :image)";
+                $statement = $pdo->prepare($sql);
                 $statement->execute([
                     ":naam" => $naam,
                     ":beschrijving" => $beschrijving,
@@ -52,7 +44,7 @@ $naam = $beschrijving = $prijs = $image = "";
                 $naam = $beschrijving = $prijs = $image = "";
             } catch (PDOException $e) {
                 //als er iets mis is gegaan
-                $errors[] = "Er is iets fout gegaan, probeer het opnieuw.";
+                $errors[] = "Kon item niet bijwerken. Controleer je database verbinding.$e";
             }
         }
     }
